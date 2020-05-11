@@ -1,8 +1,9 @@
 import React from "react";
-import {setSelectedBankIndex} from "../../redux/actions";
-import {connect} from "react-redux";
+import {useSelector} from "react-redux";
 
- const BankInfo = ({data = 0,index = 0}) => {
+export default () => {
+    const data = useSelector(state => state.data)
+    const index = useSelector(state => state.selectedIndex)
     return (
         <div>
             <div>
@@ -21,15 +22,3 @@ import {connect} from "react-redux";
 
     )
 }
-
-const mapStateToProps = state => {
-    return {
-        data: state.data,
-        index: state.selectedIndex
-    }
-}
-const mapDispatchToProps = {
-    setSelectedBankIndex
-}
-
-export default connect (mapStateToProps,null)(BankInfo)

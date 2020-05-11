@@ -1,18 +1,23 @@
-import React, {Component} from "react";
+import React, {Fragment} from "react";
 import { connect } from 'react-redux'
 import CitySelector from '../citySelector/citySelector'
-import {dataLoaded} from "../../redux/actions";
 import BankSelector from "../bankSelector/bankSelector";
 import Loader from '../loader/loader'
 import BankInfo from "../bankInfo/bankInfo";
 
-const App = (props) => {
+const App = props => {
       return (
-            <div>
+            <Fragment>
               <CitySelector/>
-              {props.loading?<Loader/>:<BankSelector/>}
+              {
+                  (props.data.length==0)?
+                      null
+                      :props.loading?
+                          <Loader/>
+                          :<BankSelector/>
+              }
                 {!(props.selectedIndex==null)?<BankInfo/>:null}
-            </div>
+            </Fragment>
       )
 }
 
@@ -24,9 +29,4 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = {
-    dataLoaded
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, null)(App)

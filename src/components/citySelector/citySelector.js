@@ -1,30 +1,19 @@
 import React from "react";
-import {connect} from "react-redux"
-import {setActiveCity,getAxiosData} from "../../redux/actions"
+import {useDispatch, useSelector} from "react-redux"
+import {setActiveCity, getAxiosData} from "../../redux/actions";
 
-const CitySelector = (props) => {
+export default () => {
+    const  cities = useSelector(state => state.cities)
+    const dispatch = useDispatch()
 
     const setCity = (event) =>{
-        props.getAxiosData(event.target.value)
+        dispatch(setActiveCity(event.target.value))
+        dispatch(getAxiosData(event.target.value))
     }
 
     return (
         <select onChange={setCity}>
-            {props.cities.map((item,index)=>{return <option key={index}>{item}</option>})}
+            {cities.map((item,index)=>{return <option key={index}>{item}</option>})}
         </select>
     )
 }
-
-const mapDispatchToProps = {
-    setActiveCity,
-    getAxiosData
-}
-
-const mapStateToProps = state => {
-    return {
-        cities: state.cities,
-        activeCity: state.activeCity
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(CitySelector)

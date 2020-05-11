@@ -1,10 +1,15 @@
 import {takeEvery,put,call} from  'redux-saga/effects'
-import {FETCH_DATA} from "./types";
+import {SET_ACTIVE_CITY} from "./types";
+import {getAxiosData, startLoading, stopLoading} from "./actions";
+
 
 export function* sagaWatcher() {
-   yield takeEvery(FETCH_DATA, sagaWorker)
+   yield takeEvery(SET_ACTIVE_CITY, sagaWorker)
 }
 
 function* sagaWorker() {
-    yield put()
+ /* yield put(startLoading())
+   yield put(getAxiosData())
+    yield put(stopLoading())*/
+
 }

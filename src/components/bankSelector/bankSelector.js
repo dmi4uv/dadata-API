@@ -1,11 +1,13 @@
 import React, {Fragment} from "react";
-import {connect} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {setSelectedBankIndex} from "../../redux/actions";
 
-const BankSelector = ({data,setSelectedBankIndex}) => {
+export default props => {
 
+    const dispatch = useDispatch()
+    const data = useSelector(state => state.data)
     const setIndex = (event) => {
-        setSelectedBankIndex(event.target.selectedIndex)
+        dispatch(setSelectedBankIndex(event.target.selectedIndex))
     }
 
     return (
@@ -18,14 +20,3 @@ const BankSelector = ({data,setSelectedBankIndex}) => {
         </Fragment>
     )
 }
-
-const mapStateToProps = state => {
-    return {
-        data: state.data
-    }
-}
-const mapDispatchToProps = {
-    setSelectedBankIndex
-}
-
-export default connect (mapStateToProps,mapDispatchToProps)(BankSelector)
