@@ -2,7 +2,7 @@ import React, {Fragment} from "react";
 import {useDispatch, useSelector} from 'react-redux'
 import {setSelectedBankIndex} from "../../redux/actions";
 
-export default props => {
+export default () => {
 
     const dispatch = useDispatch()
     const data = useSelector(state => state.data)

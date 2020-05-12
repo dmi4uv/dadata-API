@@ -1,6 +1,6 @@
 import React from "react";
 import {useDispatch, useSelector} from "react-redux"
-import {setActiveCity, getAxiosData} from "../../redux/actions";
+import {setActiveCity} from "../../redux/actions";
 
 export default () => {
     const  cities = useSelector(state => state.cities)
@@ -8,7 +8,6 @@ export default () => {
 
     const setCity = (event) =>{
         dispatch(setActiveCity(event.target.value))
-        dispatch(getAxiosData(event.target.value))
     }
 
     return (

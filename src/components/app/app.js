@@ -8,15 +8,18 @@ import BankInfo from "../bankInfo/bankInfo";
 const App = props => {
       return (
             <Fragment>
-              <CitySelector/>
-              {
-                  (props.data.length==0)?
-                      null
-                      :props.loading?
-                          <Loader/>
-                          :<BankSelector/>
-              }
-                {!(props.selectedIndex==null)?<BankInfo/>:null}
+                  <CitySelector/>
+                  {
+                      (props.data.length===0)?
+                          null
+                          :props.loading?
+                              <Loader/>
+                              :<Fragment>
+                                    <BankSelector/>
+                                    {props.data.length===0?null:<BankInfo/>}
+                               </Fragment>
+                  }
+
             </Fragment>
       )
 }

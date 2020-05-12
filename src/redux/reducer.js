@@ -1,21 +1,27 @@
 
 const  initialState = {
     data: [],
-    cities: ['самара','москва','санкт-петербург','саратов'],
+    cities: ['Москва','Самара','Санкт-петербург','Саратов','Казань'],
     loading: false,
-    error: false
+    error: false,
+    activeCity: 'Москва'
 }
 
 const reducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case 'FETCH_DATA':
+
+        case 'REQUEST_DATA_SUCCESS':
             return {
                 ...state, data: action.payload
             }
         case 'SET_SELECTED_BANK_INDEX':
             return {
                 ...state, selectedIndex: action.payload
+            }
+        case 'SET_ZERO_BANK_INDEX':
+            return {
+                ...state, selectedIndex: 0
             }
         case 'SET_ACTIVE_CITY':
             return {
