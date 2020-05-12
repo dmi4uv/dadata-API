@@ -1,11 +1,12 @@
 import React from "react";
 import {useSelector} from "react-redux";
+import './bankInfo.css'
 
 export default () => {
     const data = useSelector(state => state.data)
     const index = useSelector(state => state.selectedIndex)
     return (
-        <div>
+        <div className="bankInfo">
             <div>
                 <p>Название: {data[index].value?data[index].value:0}</p>
             </div>
