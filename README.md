@@ -2,4 +2,4 @@ React приложение использует api dadata.ru для получ�
 С использованием redux, saga, axios.
 Не адаптивно.
 
-https://dmi4uv.github.io/dadata-api/
+https://dmi4uv.github.io/dadata-API/
