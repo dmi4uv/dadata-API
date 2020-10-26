@@ -11,13 +11,13 @@ export default () => {
                 <p>Название: {data[index].value?data[index].value:0}</p>
             </div>
             <div>
-                <p>БИК: {data[index].data.bic}</p>
+                <p>БИК: {data[index].data.bic?data[index].data.bic:'Нет информации'}</p>
             </div>
             <div>
-                <p>ИНН: {data[index].data.inn}</p>
+                <p>ИНН: {data[index].data.inn?data[index].data.inn:'Нет информации'}</p>
             </div>
             <div>
-                <p>КПП: {data[index].data.kpp}</p>
+                <p>КПП: {data[index].data.kpp?data[index].data.kpp:'Нет информации'}</p>
             </div>
         </div>
 

@@ -11,8 +11,12 @@ export default () => {
     }
 
     return (
-        <select onChange={setCity}>
-            {cities.map((item,index)=>{return <option key={index}>{item}</option>})}
-        </select>
+        <div className='jc'>
+            <span>Город:</span>
+            <select onChange={setCity}>
+                {cities.map((item,index)=>{return <option key={index}>{item}</option>})}
+            </select>
+        </div>
+
     )
 }

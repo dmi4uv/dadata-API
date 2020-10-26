@@ -11,12 +11,13 @@ export default () => {
     }
 
     return (
-        <Fragment>
+        <div className="jc">
+            <span>Название банка:</span>
             <select onChange={setIndex}>
                 {data.map((item,index)=> {
                     return  <option key={index}>{item.value}</option>
                 })}
             </select>
-        </Fragment>
+        </div>
     )
 }
